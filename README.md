@@ -49,7 +49,7 @@ ingress-service-metal   NodePort   10.101.225.196   <none>        80:30005/TCP  
 port `30005` should be configured as a target in haproxy.
 
 ### How to test: ingress is set to route host: testapp
-in case of bare bettal setup without Loadbalancer
+in case of bare metal setup without Loadbalancer
 ``` 
 telnet NODEIP 30005
 GET /ping HTTP/1.0
@@ -63,4 +63,18 @@ Content-Length: 2
 Connection: close
 
 OKConnection closed by foreign host.
+```
+``` 
+telnet NODEIP 30005
+GET / HTTP/1.0
+Host: testapp
+
+HTTP/1.1 200 OK
+Server: nginx/1.17.10
+Date: Mon, 25 May 2020 18:11:54 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 11
+Connection: close
+
+successful!Connection closed by foreign host.
 ```
