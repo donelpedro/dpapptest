@@ -34,7 +34,7 @@ NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP   6h47m
 pyapp        ClusterIP   10.99.169.235   <none>        80/TCP    35m
 ```
-manifest is designed for a bbre metal env. there for external loadbalancer like haproxy is required
+manifest is designed for a bbre metal env. there for external loadbalancer like haproxy is required  
 nodeport service should be created by :
 ```
 kubectl create -f nodeport.yaml
@@ -54,8 +54,6 @@ in case of bare metal setup without Loadbalancer where NODEIP is and ip address 
 telnet <NODEIP> 30005
 GET /ping HTTP/1.0
 Host: testapp
-
-
 ```
   
 ```
