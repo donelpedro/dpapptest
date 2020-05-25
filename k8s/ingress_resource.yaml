@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress-resource
+spec:
+  rules:
+  - host: testapp
+    http:
+      paths:
+      - backend:
+          serviceName: pyapp
+          servicePort: 80
