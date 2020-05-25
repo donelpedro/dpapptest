@@ -49,9 +49,9 @@ ingress-service-metal   NodePort   10.101.225.196   <none>        80:30005/TCP  
 port `30005` should be configured as a target in haproxy.
 
 ### How to test: ingress is set to route host: testapp
-in case of bare metal setup without Loadbalancer
+in case of bare metal setup without Loadbalancer where NODEIP is and ip address of any cluster node.
 ``` 
-telnet NODEIP 30005
+telnet <NODEIP> 30005
 GET /ping HTTP/1.0
 Host: testapp
 
@@ -66,11 +66,11 @@ Content-Type: text/html; charset=utf-8
 Content-Length: 2
 Connection: close
 
-OKConnection closed by foreign host.
+OK
 ```
   
 ``` 
-telnet NODEIP 30005
+telnet <NODEIP> 30005
 GET / HTTP/1.0
 Host: testapp
 ```
@@ -83,5 +83,5 @@ Content-Type: text/html; charset=utf-8
 Content-Length: 11
 Connection: close
 
-successful!Connection closed by foreign host.
+successful!
 ```
