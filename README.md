@@ -55,6 +55,10 @@ telnet NODEIP 30005
 GET /ping HTTP/1.0
 Host: testapp
 
+
+```
+  
+```
 HTTP/1.1 200 OK
 Server: nginx/1.17.10
 Date: Mon, 25 May 2020 18:06:56 GMT
@@ -64,11 +68,14 @@ Connection: close
 
 OKConnection closed by foreign host.
 ```
+  
 ``` 
 telnet NODEIP 30005
 GET / HTTP/1.0
 Host: testapp
-
+```
+  
+```
 HTTP/1.1 200 OK
 Server: nginx/1.17.10
 Date: Mon, 25 May 2020 18:11:54 GMT
