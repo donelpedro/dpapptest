@@ -43,3 +43,23 @@ spec:
         args:
           - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
           - -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-config
+  namespace: nginx-ingress
+data:
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress-resource
+spec:
+  rules:
+  - host: testapp
+    http:
+      paths:
+      - backend:
+          serviceName: pyapp
+          servicePort: 80
