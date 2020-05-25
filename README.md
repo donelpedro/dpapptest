@@ -1,6 +1,6 @@
 # dpapptest
 
-assumed dockerhub is used as a container registry `docker login` required
+assumed dockerhub is used as a container registry `docker login` required  
   note: Image is already in repository
 ```
 docker build -t "pyapptest:v2" .
