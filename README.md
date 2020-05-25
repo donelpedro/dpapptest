@@ -13,7 +13,7 @@ to deploy application in k8s cluster use:
 kubeclt create -f k8s/pyapp_deployment.yaml
 ```
 
-### expected result: 
+#### expected result: 
 ```
 kubectl get pods
 NAME                    READY   STATUS    RESTARTS   AGE
@@ -40,10 +40,27 @@ nodeport service should be created by :
 kubectl create -f nodeport.yaml
 ```
 
-expected result: 
+#### expected result: 
 ```
 kubectl get services -n nginx-ingress
 NAME                    TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
 ingress-service-metal   NodePort   10.101.225.196   <none>        80:30005/TCP   35m
 ```
 port `30005` should be configured as a target in haproxy.
+
+### How to test: ingress is set to route host: testapp
+in case of bare bettal setup without Loadbalancer
+``` 
+telnet NODEIP 30005
+GET /ping HTTP/1.0
+Host: testapp
+
+HTTP/1.1 200 OK
+Server: nginx/1.17.10
+Date: Mon, 25 May 2020 18:06:56 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 2
+Connection: close
+
+OKConnection closed by foreign host.
+```
