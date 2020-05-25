@@ -7,7 +7,8 @@ docker build -t "pyapptest:v2" .
 docker tag pyapptest:v2 
 docker push donped/pyapptest:v2
 ```
-image name `donped/pyapptest:v2` is used in k8s manifest to deploy application in k8s cluster use:
+image name `donped/pyapptest:v2` is used in k8s manifest to deploy application in k8s cluster use:  
+assumed that k8s cluster have no ingress controller deployed ( pyapp_deployment.yaml contains deployment of ingress controler with 3 replicas ) 
 ```
 kubeclt create -f k8s/pyapp_deployment.yaml
 ```
